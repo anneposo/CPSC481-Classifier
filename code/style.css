@@ -28,5 +28,41 @@ form button {
   font-size: 1rem;
   font-family: "Poppins", sans-serif;
   border: none;
-  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+form button:hover {
+  background: #85929e;
+  color: white;
+}
+
+.select-container {
+  min-height: 20vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.select {
+  margin: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+select {
+  appearance: none;
+  outline: none;
+  border: none;
+  width: 42rem;
+  padding: 1rem;
+  font-family: "Poppins", sans-serif;
+}
+.select::after {
+  content: "\25BC";
+  position: absolute;
+  background: #212f3c;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+  pointer-events: none;
 }
