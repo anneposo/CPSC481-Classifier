@@ -57,12 +57,23 @@ select {
   padding: 1rem;
   font-family: "Poppins", sans-serif;
 }
+
 .select::after {
   content: "\25BC";
   position: absolute;
-  background: #212f3c;
+  color: #212f3c;
   top: 0;
   right: 0;
   padding: 1rem;
   pointer-events: none;
+}
+
+.select:hover::after {
+  background-color: #85929e;
+  color: white;
+}
+
+p {
+  padding-top: 1.5rem;
+  font-size: 0.9rem;
 }
