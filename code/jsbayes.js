@@ -1,3 +1,13 @@
+/*********************************************
+  @misc{vang_jsbayes_2016, 
+  title={jsbayes}, 
+  url={https://github.com/vangj/jsbayes/}, 
+  journal={GitHub},
+  author={Vang, Jee}, 
+  year={2016}, 
+  month={Jan}}
+***********************************************/
+
 (function(window) {
   'use strict';
 
