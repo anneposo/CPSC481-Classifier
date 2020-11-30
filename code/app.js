@@ -1,4 +1,79 @@
-var input1, input2, input3, input4, input5;
+// import './jsbayes.js';
+var f1, f2, f3, f4, f5;
+// var A1, A2, A3;
+
+// Hardcoded probabilities 
+var A1 = {
+    'yes': 0.9,
+    'no': 0.1,
+    'first': 0.5,
+    'second': 0.5,
+    'third': 0.5,
+    'fourth': 0.5,
+    'low': 0.7,
+    'passing': 0.6,
+    'average': 0.6,
+    'high': 0.6,
+    'none': 0.9,
+    'acm': 0.2, 
+    'rover': 0.2,
+    'oss': 0.2,
+    'game': 0.2,
+    'data': 0.2,
+    'experience': 0.2,
+    'noexperience': 0.9
+};
+
+var A3 = {
+    'yes': 0.9,
+    'no': 0.1,
+    'first': 0.5,
+    'second': 0.5,
+    'third': 0.5,
+    'fourth': 0.8,
+    'low': 0.7,
+    'passing': 0.6,
+    'average': 0.6,
+    'high': 0.6,
+    'none': 0.9,
+    'acm': 0.2, 
+    'rover': 0.2,
+    'oss': 0.2,
+    'game': 0.2,
+    'data': 0.2,
+    'experience': 0.2,
+    'noexperience': 0.9
+};
+
+var A2 = {
+    'yes': 0.4,
+    'no': 0.6,
+    'first': 0.8,
+    'second': 0.7,
+    'third': 0.6,
+    'fourth': 0.5,
+    'low': 0.7,
+    'passing': 0.6,
+    'average': 0.6,
+    'high': 0.6,
+    'none': 0.1,
+    'acm': 0.45, 
+    'rover': 0.45,
+    'oss': 0.45,
+    'game': 0.45,
+    'data': 0.45,
+    'experience': 0.2,
+    'noexperience': 0.9
+};
+
+// console.log(A1['yes']*A1['fourth']);
+
+// var g = jsbayes.newGraph();
+
+let Advice1 = 'Join a club in CS';
+let Advice2 = 'It is a great time for you to start applying to internships';
+let Advice3 = 'Network!';
+var tempAdvice = ['yes you should go', 'no you should not go', 'remain in school', 'continue studying', 'form study groups', 'get internship'];
 
 // Selectors
 const formButton = document.querySelector('.form-button');
@@ -10,94 +85,108 @@ const selectOption5= document.querySelector(".f5");
 
 // Event Listeners
 formButton.addEventListener('click', submitForm);
-selectOption1.addEventListener('click', updateF1);
-selectOption2.addEventListener('click', updateF2);
-selectOption3.addEventListener('click', updateF3);
-selectOption4.addEventListener('click', updateF4);
-selectOption5.addEventListener('click', updateF5);
+selectOption1.addEventListener('input', updateF1);
+selectOption2.addEventListener('input', updateF2);
+selectOption3.addEventListener('input', updateF3);
+selectOption4.addEventListener('input', updateF4);
+selectOption5.addEventListener('input', updateF5);
+
+function shellSort(arr) {
+    var increment = arr.length / 2; // 3
+    console.log(increment); //delete
+    while (increment > 0) {
+        for (i = increment; i < arr.length; i++) {
+            var j = i; // 3, 4
+            var temp = arr[i]; // 5
+            var Atemp = tempAdvice[i];
+            // console.log('temp', temp);
+    
+            while (j >= increment && arr[j-increment] > temp) {
+                arr[j] = arr[j-increment];
+                tempAdvice[j] = tempAdvice[j-increment];
+                // console.log('array',arr[j]); //delete
+                j = j - increment;
+            }
+    
+            arr[j] = temp; // 5
+            tempAdvice[j] = Atemp; 
+            // console.log('array', arr[j]);
+        }
+    
+        if (increment == 2) {
+            increment = 1;
+        } else {
+            increment = parseInt(increment*5 / 11);
+            // console.log('increment:', increment);
+        }
+    }
+  return arr;
+}
+
+console.log(shellSort([3, 0, 2, 5, 0.6, 4]));
+console.log(tempAdvice);
+
 
 // Functions
-function submitForm(e) {
-    e.preventDefault(); // prevents form from submitting/refreshing page
-    console.log("Feature 1 =", input1);
-    console.log("Feature 2 =", input2);
-    console.log("Feature 3 =", input3);
-    console.log("Feature 4 =", input4);
-    console.log("Feature 5 =", input5);
+function submitForm(event) {
+    event.preventDefault(); // prevents form from submitting/refreshing page
+    console.log("Feature 1 =", f1);
+    console.log("Feature 2 =", f2);
+    console.log("Feature 3 =", f3);
+    console.log("Feature 4 =", f4);
+    console.log("Feature 5 =", f5);
+    console.log(A1[f1]*A1['fourth']);
+    var advices = []; // saves probabilites 
+    advices[0] = A1[f1]*A1[f2]*A1[f3]*A1[f4]*A1[f5];
+    advices[1] = A2[f1]*A2[f2]*A2[f3]*A2[f4]*A2[f5];
+    advices[2] = A3[f1]*A3[f2]*A3[f3]*A3[f4]*A3[f5];
 
+    console.log('Based on your input');
+    var size = tempAdvice.length;
+    // console.log('the size of array',size);
+
+    for( i = (tempAdvice.length-1); i >= 3; i--) {
+        // console.log('here in loop');
+        console.log(tempAdvice[i]);
+    }
+   
+
+    // create a function that takes 3 parameters and sorts them in order prints the advice for greatest probability
 }
+
+/* function selectOption(e) {
+    console.log(e.target.value);
+    switch(e.target.value) {
+        case "yes": case "no":
+            f1 = e.target.value;
+            break;
+    }
+} */
 
 function updateF1(e) {
     console.log(e.target.value);
-    input1 = e.target.value
+    const newLocal = e.target.value;
+    f1 = newLocal
+    console.log(f1)
 }
 
 function updateF2(e) {
-    input2 = e.target.value
+    f2 = e.target.value
+    console.log(f2)
 }
 
 function updateF3(e) {
-    input3 = e.target.value
+    f3 = e.target.value
+    console.log(f3)
 }
 
 function updateF4(e) {
-    input4 = e.target.value
+    f4 = e.target.value
+    console.log(f4)
 }
 
 function updateF5(e) {
-    input5 = e.target.value
+    f5 = e.target.value
+    console.log(f5)
 }
-
-// Choosing the most likely advice outcome given values of the feature variables
-
-var g = jsbayes.newGraph();
-
-// outcomes/classes
-var a1 = g.addNode('a1', ['true', 'false']); // Advice 1 = Join a club related to CS
-var a2 = g.addNode('a1', ['true', 'false']); // Advice 2 = Start looking for internships
-var a3 = g.addNode('a1', ['true', 'false']); // Advice 3 = Work on personal project
-
-// feature variables
-var f1 = g.addNode('f1', ['yes', 'no']); // feature 1, Q1
-var f2 = g.addNode('f2', ['first', 'second', 'third', 'fourth']); // feature 2, Q2
-var f3 = g.addNode('f3', ['low', 'passing', 'average', 'high']); // feature 3, Q3
-var f4 = g.addNode('f4', ['none', 'acm', 'rover', 'oss', 'game', 'data']); // feature 4, Q4
-var f5 = g.addNode('f5', ['yes', 'no']); // feature 5, Q5
-
-// Define prior probabilities
-a1.cpt = [0.6, 0.4]; // [ P(+a1), P(-a1) ]
-a2.cpt = [0.8, 0.2]; // [ P(+a2), P(-a2) ]
-a3.cpt = [0.5, 0.5]; // [ P(+a3), P(-a3) ]
-
-// Define conditional probabilities for all features
-f1.addParent(a1)
- .addParent(a2)
- .addParent(a3);
-
-f1.setCpt([
-    [0.2, 0.8], // P(f1=yes|-a1,-a2,-a3), P(f1=no|-a1,-a2,-a3)  
-    [0.6, 0.4], // P(f1=yes|-a1,-a2,+a3), P(f1=no|-a1,-a2,+a3)
-    [], // P(f1=yes|-a1,+a2,-a3), P(f1=no|-a1,+a2,-a3)
-    [], // P(f1=yes|-a1,+a2,+a3), P(f1=no|-a1,+a2,+a3)
-    [], // P(f1=yes|+a1,-a2,-a3), P(f1=no|+a1,-a2,-a3)
-    [], // P(f1=yes|+a1,-a2,+a3), P(f1=no|+a1,-a2,+a3)
-    [], // P(f1=yes|+a1,+a2,-a3), P(f1=no|+a1,+a2,-a3)
-    [], // P(f1=yes|+a1,+a2,+a3), P(f1=no|+a1,+a2,+a3)
-]);
-
-/*f1.cpt = [
-    [
-        [], //[ P(f1=no|-a1,-a2), P(f1=yes|-a1,-a2) ]
-        []  //[ P(f1=no|-a1,+a2), P(f1=yes|-a1,+a2) ]
-    ],
-    [
-        [], //[ P(f1=no|+a1,-a1), P(f1=yes|+a1,-a2) ]
-        []  //[ P(f1=no|+a1,+a2), P(f1=yes|+a1,+a2) ]
-            
-    ]
-]*/
-
-
-// Use Naive Bayes Classifier
-
 
