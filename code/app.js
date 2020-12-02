@@ -1,6 +1,4 @@
-// import './jsbayes.js';
 var f1, f2, f3, f4, f5;
-// var A1, A2, A3;
 
 // Hardcoded probabilities 
 var A1 = {
@@ -29,7 +27,7 @@ var A3 = {
     'no': 0.1,
     'first': 0.5,
     'second': 0.5,
-    'third': 0.5,
+    'third': 0.6,
     'fourth': 0.8,
     'low': 0.7,
     'passing': 0.6,
@@ -66,14 +64,29 @@ var A2 = {
     'noexperience': 0.9
 };
 
-// console.log(A1['yes']*A1['fourth']);
+var A4 = {
+    'yes': 0.9,
+    'no': 0.1,
+    'first': 0.1,
+    'second': 0.2,
+    'third': 0.3,
+    'fourth': 0.4,
+    'low': 0.7,
+    'passing': 0.6,
+    'average': 0.6,
+    'high': 0.6,
+    'none': 0.9,
+    'acm': 0.2, 
+    'rover': 0.2,
+    'oss': 0.2,
+    'game': 0.2,
+    'data': 0.2,
+    'experience': 0.5,
+    'noexperience': 0.5
+};
 
-// var g = jsbayes.newGraph();
 
-let Advice1 = 'Join a club in CS';
-let Advice2 = 'It is a great time for you to start applying to internships';
-let Advice3 = 'Network!';
-var tempAdvice = ['yes you should go', 'no you should not go', 'remain in school', 'continue studying', 'form study groups', 'get internship'];
+var tempAdvice = ['Join a club in CS', 'It is a great time for you to start applying to inernships', 'Network', 'Talk to your adviser'];
 
 // Selectors
 const formButton = document.querySelector('.form-button');
@@ -91,6 +104,7 @@ selectOption3.addEventListener('input', updateF3);
 selectOption4.addEventListener('input', updateF4);
 selectOption5.addEventListener('input', updateF5);
 
+// Sorts the advice probabilities 
 function shellSort(arr) {
     var increment = arr.length / 2; // 3
     console.log(increment); //delete
@@ -123,9 +137,6 @@ function shellSort(arr) {
   return arr;
 }
 
-console.log(shellSort([3, 0, 2, 5, 0.6, 4]));
-console.log(tempAdvice);
-
 
 // Functions
 function submitForm(event) {
@@ -135,33 +146,34 @@ function submitForm(event) {
     console.log("Feature 3 =", f3);
     console.log("Feature 4 =", f4);
     console.log("Feature 5 =", f5);
-    console.log(A1[f1]*A1['fourth']);
-    var advices = []; // saves probabilites 
+
+    // stores probabilites from user input
+    var advices = []; 
+
     advices[0] = A1[f1]*A1[f2]*A1[f3]*A1[f4]*A1[f5];
     advices[1] = A2[f1]*A2[f2]*A2[f3]*A2[f4]*A2[f5];
     advices[2] = A3[f1]*A3[f2]*A3[f3]*A3[f4]*A3[f5];
+    advices[3] = A3[f1]*A3[f2]*A3[f3]*A3[f4]*A3[f5];
 
-    console.log('Based on your input');
-    var size = tempAdvice.length;
-    // console.log('the size of array',size);
+    console.log(advices); // delete later 
+    console.log(shellSort(advices)); // delete later
 
-    for( i = (tempAdvice.length-1); i >= 3; i--) {
-        // console.log('here in loop');
-        console.log(tempAdvice[i]);
+    console.log('Based on your input, you should: ');
+    
+    var n = 3;
+    var x = tempAdvice.length-1; // stores index of highes probability  
+    
+    while (n != 0){
+        console.log(tempAdvice[x]);
+        x--;
+        n--;
+
     }
-   
+
 
     // create a function that takes 3 parameters and sorts them in order prints the advice for greatest probability
 }
 
-/* function selectOption(e) {
-    console.log(e.target.value);
-    switch(e.target.value) {
-        case "yes": case "no":
-            f1 = e.target.value;
-            break;
-    }
-} */
 
 function updateF1(e) {
     console.log(e.target.value);
