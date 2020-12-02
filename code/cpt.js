@@ -64,7 +64,7 @@ var prob_f1_givenA2_false; // P(f1=input1|-a2)
 var prob_f1_givenA3_true;  // P(f1=input1|+a3)
 var prob_f1_givenA3_false; // P(f1=input1|-a3)
 
-// search for P(f1=yes) or P(f1=no) in CPT given user's input
+// search for P(f1=yes) or P(f1=no) in CPT given user's input for f1
 function assign_prob_f1() {
     if (input1 == 'yes') { // if user input 'yes' for Q1
         prob_f1_givenA1_true = f1_givenA1.cpt[0][0];  // get probability for P(f1=yes|+a1)
@@ -93,6 +93,8 @@ function assign_prob_f1() {
 // Use Naive Bayes Classifier
 // P(a1=true|f1=input1, f2=input2, f3=input3, f4=input4, f5=input5)
 // P(a1=false|f1=input1, f2=input2, f3=input3, f4=input4, f5=input5)
+// posteriorProb_a1_true = prob_f1_givenA1_true * prob_f2_givenA1_true * ... etc
+// posteriorProb_a1_false = prob_f1_givenA1_true * prob_f2_givenA1_true * ... etc
 
 // P(a2=true|f1=input1, f2=input2, f3=input3, f4=input4, f5=input5)
 // P(a2=false|f1=input1, f2=input2, f3=input3, f4=input4, f5=input5)

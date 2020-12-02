@@ -31,6 +31,8 @@ function submitForm(e) {
 function updateF1(e) {
     console.log(e.target.value);
     input1 = e.target.value
+    // searches for conditional probabilities based on user input
+    // and stores probability in prob_f1_givenAx_true and prob_f1_givenAx_false
     assign_prob_f1();
 }
 
