@@ -24,6 +24,7 @@ function submitForm(e) {
     console.log("Feature 3 =", input3);
     console.log("Feature 4 =", input4);
     console.log("Feature 5 =", input5);
+    naiveBayesClassifier();
     //print_probF1();
 
 }
@@ -38,18 +39,22 @@ function updateF1(e) {
 
 function updateF2(e) {
     input2 = e.target.value
+    assign_prob_f2();
 }
 
 function updateF3(e) {
     input3 = e.target.value
+    assign_prob_f3();
 }
 
 function updateF4(e) {
     input4 = e.target.value
+    assign_prob_f4();
 }
 
 function updateF5(e) {
     input5 = e.target.value
+    assign_prob_f5();
 }
 
 
