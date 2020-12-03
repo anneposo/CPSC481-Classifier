@@ -2,64 +2,64 @@
 var A1 = {
     'yes': 0.9,
     'no': 0.1,
-    'first': 0.5,
-    'second': 0.5,
-    'third': 0.5,
-    'fourth': 0.5,
-    'low': 0.7,
-    'passing': 0.6,
-    'average': 0.6,
-    'high': 0.6,
-    'none': 0.9,
-    'acm': 0.2, 
-    'rover': 0.2,
-    'oss': 0.2,
-    'game': 0.2,
-    'data': 0.2,
-    'experience': 0.2,
-    'noexperience': 0.9
+    'first': 0.4,
+    'second': 0.3,
+    'third': 0.2,
+    'fourth': 0.1,
+    'low': 0.1,
+    'passing': 0.3,
+    'average': 0.4,
+    'high': 0.2,
+    'none': 0.6,
+    'acm': 0.05, 
+    'rover': 0.05,
+    'oss': 0.1,
+    'game': 0.1,
+    'data': 0.1,
+    'experience': 0.5,
+    'noexperience': 0.5
 };
 
 var A2 = {
     'yes': 0.4,
     'no': 0.6,
-    'first': 0.8,
-    'second': 0.7,
+    'first': 0.05,
+    'second': 0.3,
     'third': 0.6,
-    'fourth': 0.5,
-    'low': 0.7,
-    'passing': 0.6,
-    'average': 0.6,
-    'high': 0.6,
-    'none': 0.1,
-    'acm': 0.45, 
-    'rover': 0.45,
-    'oss': 0.45,
-    'game': 0.45,
-    'data': 0.45,
-    'experience': 0.2,
+    'fourth': 0.05,
+    'low': 0.1,
+    'passing': 0.1,
+    'average': 0.3,
+    'high': 0.5,
+    'none': 0.25,
+    'acm': 0.15, 
+    'rover': 0.15,
+    'oss': 0.15,
+    'game': 0.15,
+    'data': 0.15,
+    'experience': 0.1,
     'noexperience': 0.9
 };
 
 var A3 = {
-    'yes': 0.9,
-    'no': 0.1,
-    'first': 0.5,
-    'second': 0.5,
-    'third': 0.6,
-    'fourth': 0.8,
-    'low': 0.7,
-    'passing': 0.6,
-    'average': 0.6,
-    'high': 0.6,
-    'none': 0.9,
-    'acm': 0.2, 
-    'rover': 0.2,
-    'oss': 0.2,
-    'game': 0.2,
-    'data': 0.2,
+    'yes': 0.8,
+    'no': 0.2,
+    'first': 0.2,
+    'second': 0.2,
+    'third': 0.3,
+    'fourth': 0.3,
+    'low': 0.1,
+    'passing': 0.1,
+    'average': 0.4,
+    'high': 0.4,
+    'none': 0.5,
+    'acm': 0.1, 
+    'rover': 0.1,
+    'oss': 0.1,
+    'game': 0.1,
+    'data': 0.1,
     'experience': 0.2,
-    'noexperience': 0.9
+    'noexperience': 0.8
 };
 
 var A4 = {
@@ -69,26 +69,26 @@ var A4 = {
     'second': 0.2,
     'third': 0.3,
     'fourth': 0.4,
-    'low': 0.7,
-    'passing': 0.6,
-    'average': 0.6,
-    'high': 0.6,
-    'none': 0.9,
-    'acm': 0.2, 
-    'rover': 0.2,
-    'oss': 0.2,
-    'game': 0.2,
-    'data': 0.2,
-    'experience': 0.5,
-    'noexperience': 0.5
+    'low': 0.5,
+    'passing': 0.3,
+    'average': 0.1,
+    'high': 0.1,
+    'none': 0.5,
+    'acm': 0.1, 
+    'rover': 0.1,
+    'oss': 0.1,
+    'game': 0.1,
+    'data': 0.1,
+    'experience': 0.3,
+    'noexperience': 0.7
 };
 
 
 var tempAdvice = [
-    'Join a club in CS', 
-    'It is a great time for you to start applying to inernships', 
-    'Network', 
-    'Talk to your advisor'
+    'Join a club in CS', // A1
+    'It is a great time for you to start applying to inernships', // A2
+    'Network',  // A3
+    'Talk to your advisor' // A4
 ];
 
 // Sorts the advice probabilities 
@@ -131,16 +131,10 @@ function calculateProb() {
     // stores probabilites from user input
     var advices = []; 
 
-    console.log("A1[f1] = ", A1[f1]);
-    console.log("A1[f2] = ", A1[f2]);
-    console.log("A1[f3] = ", A1[f3]);
-    console.log("A1[f4] = ", A1[f4]);
-    console.log("A1[f5] = ", A1[f5]);
-
-    advices[0] = A1[f1]*A1[f2]*A1[f3]*A1[f4]*A1[f5];
-    advices[1] = A2[f1]*A2[f2]*A2[f3]*A2[f4]*A2[f5];
-    advices[2] = A3[f1]*A3[f2]*A3[f3]*A3[f4]*A3[f5];
-    advices[3] = A3[f1]*A3[f2]*A3[f3]*A3[f4]*A3[f5];
+    advices[0] = 0.6*A1[f1]*A1[f2]*A1[f3]*A1[f4]*A1[f5];
+    advices[1] = 0.7*A2[f1]*A2[f2]*A2[f3]*A2[f4]*A2[f5];
+    advices[2] = 0.6*A3[f1]*A3[f2]*A3[f3]*A3[f4]*A3[f5];
+    advices[3] = 0.5*A3[f1]*A3[f2]*A3[f3]*A3[f4]*A3[f5];
 
     console.log(advices); // delete later 
     console.log(shellSort(advices)); // delete later
