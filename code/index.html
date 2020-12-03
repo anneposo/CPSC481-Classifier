@@ -6,6 +6,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <link rel="stylesheet" href="./style.css">
+    <script type="text/javascript" src="./prob.js"></script>
+    <script src="./app.js"></script>
+
     <title>Classifier</title>
 </head>
 <body>
@@ -60,21 +63,26 @@
         <div class="select">
             <select name="f5" class="f5">
                 <option value="" disabled selected>Select..</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
+                <option value="experience">Yes</option>
+                <option value="noexperience">No</option>
             </select>
         </div>
     </div>
 
+    <div class="popup" id="popup-1">
+        <div class="overlay"></div>
+        <div class="content">
+          <div class="close-btn" onclick="togglePopup()">&times;</div>
+          <h1>Advice</h1>
+          <p id="advice1"></p>
+          <p id="advice2"></p>
+          <p id="advice3"></p>
+        </div>
+    </div>
+
     <form>
-        <button class="form-button" type="submit">
-            Submit
-        </button>
+        <button class="form-button" type="submit">Submit</button>
     </form>
-    
-    <script type="text/javascript" src="./jsbayes.js"></script>
-    <script type="text/javascript" src="./cpt.js"></script>
-    <script src="./app.js"></script>
     
 </body>
 </html>
