@@ -85,10 +85,10 @@ var A4 = {
 
 
 var tempAdvice = [
-    'Join a club in CS', // A1
-    'It is a great time for you to start applying to inernships', // A2
-    'Network',  // A3
-    'Talk to your advisor' // A4
+    'Clubs and organizations are a big part of college life! They allow you to become involved beyond the classroom and meet students who are interested in pursuing the same field. Joining a club that is focused on an area of Computer Science will encourage career development and an understanding of opportunities within the tech industry. They also make for a great resume builder! You can find a list of CSUF ECS student clubs at https://www.fullerton.edu/ecs/resources/ecs_student_clubs.php', // A1
+    'It\'s a great time for you to start applying for internships if you haven\'t already. They are a great way to apply knowledge from the classroom to real-world experience and begin networking with professionals in your field. Internships are important in the STEM field to gain an advantage over other candidates when applying to full-time jobs after graduating. Start polishing your resume and LinkedIn profile!', // A2
+    'Start building your academic and professional network. You\'ll gain valuable insight from industry professionals and develop relationships that may lead to more business opportunities later on in your career. Attending events such as tech conferences and hackathons are a great way to start connecting with people outside of school.',  // A3
+    'Make sure to check in with your academic advisor. It is important to know your degree program in order to fulfill the degree requirements and graduate on time. Academic advisors help guide students to make the best decisions based on their major and provide information as well as options to help fulfill your degree requirements without wasting time and money on irrelevant classes. You can schedule an advising appointment at https://appointment.ecs.fullerton.edu/' // A4
 ];
 
 // Sorts the advice probabilities 
@@ -131,7 +131,7 @@ function calculateProb() {
     // stores probabilites from user input
     var advices = []; 
 
-    advices[0] = 0.6*A1[f1]*A1[f2]*A1[f3]*A1[f4]*A1[f5];
+    advices[0] = 0.3*A1[f1]*A1[f2]*A1[f3]*A1[f4]*A1[f5];
     advices[1] = 0.7*A2[f1]*A2[f2]*A2[f3]*A2[f4]*A2[f5];
     advices[2] = 0.6*A3[f1]*A3[f2]*A3[f3]*A3[f4]*A3[f5];
     advices[3] = 0.5*A3[f1]*A3[f2]*A3[f3]*A3[f4]*A3[f5];
@@ -147,9 +147,11 @@ function calculateProb() {
     advice1 = tempAdvice[x];
     console.log("advice1 = ", advice1);
     document.getElementById("advice1").innerHTML = advice1;
+
     advice2 = tempAdvice[x-1];
     console.log("advice2 = ", advice2);
     document.getElementById("advice2").innerHTML = advice2;
+    
     advice3 = tempAdvice[x-2];
     console.log("advice3 = ", advice3);
     document.getElementById("advice3").innerHTML = advice3;
